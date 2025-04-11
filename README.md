@@ -18,7 +18,7 @@ Preview of fixed content:
 #include <vector>...
 Repository access verified ✓
 File doesn't exist, will create new file
-Attempting to commit to https://api.github.com/repos/jayeshthk/faultyCode/contents/cpp/main.cpp
+Attempting to commit to https://github.com/repos/jayeshthk/faultyCode/contents/cpp/main.cpp
 Commit successful ✓
 Successfully fixed and committed cpp/main.cpp
 ```
