@@ -1,6 +1,3 @@
-Here is the fixed file content:
-
-```js
 import React, { useState } from 'react'
 
 export default function Home() {
@@ -18,4 +15,3 @@ export default function Home() {
     </div>
   );
 }
-```
