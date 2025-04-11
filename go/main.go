@@ -1,13 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 )
 
 func main() {
 	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, `{"status": "ok"}`)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(200)
+		fmt.Fprint(w, `{"status": "ok"}`)
 	})
 
 	fmt.Println("Server starting on :8080")
