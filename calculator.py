@@ -4,11 +4,10 @@ def add(a, b):
     return a + b
 
 def subtract(a, b):
-    return a - b  # ✅ Previously buggy, now fixed
+    return a - b
 
 def multiply(a, b):
-    # ❌ Bug: Accidentally returning the square of 'a' instead of a * b
-    return a * a
+    return a * b
 
 def main():
     print("Simple Calculator")
