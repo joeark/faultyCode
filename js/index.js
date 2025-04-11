@@ -1,11 +1,13 @@
+Here is the fixed file content:
 
-import React from 'react'
+```js
+import React, { useState } from 'react'
 
 export default function Home() {
-  let counter = 0; 
+  const [counter, setCounter] = useState(0); 
   const handleClick = () => {
-    counter += 1;
-    console.log("Counter:", counter);
+    setCounter(counter + 1);
+    console.log("Counter:", counter + 1);
   };
 
   return (
@@ -16,3 +18,4 @@ export default function Home() {
     </div>
   );
 }
+```
