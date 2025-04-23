@@ -1,6 +1,6 @@
 import pandas as pd 
 import numpy as np
-import re
+
 
 class ReportSubcomponent:
     def __init__(self, data: pd.DataFrame):
@@ -9,6 +9,9 @@ class ReportSubcomponent:
         self.report_summary = None
 
     def generate_report(self):
+        """
+        Generate a report based on the data.
+        """
         self.report = self.data.describe(include='all')
         self.report_summary = {
             'mean': self.data.mean(),
@@ -19,15 +22,38 @@ class ReportSubcomponent:
         }
         return self.report, self.report_summary
     
-    def find_username_token_using_regex(self, token:str):
+    def find_username_token_using_regex(self, df:pd.DataFrame, token:str):
+        """
+        Find username and token using regex.
+        
+        Args:
+            df (pd.DataFrame): DataFrame containing the data
+            token (str): Token to search for
+        
+        Returns:
+            pd.DataFrame: DataFrame with the found username and token
+        """
+        # Example regex pattern to find username and token
         pattern = r'(?P<username>[a-zA-Z0-9_]+)[:=](?P<token>[a-zA-Z0-9_]+)'
-        matches = self.data['username'].str.extract(pattern)
+        matches = df['data'].str.extract(pattern)
         return matches
     
     def find_username_email_using_regex(self, input_str):
+        """
+        Find username using regex.
+        
+        Args:
+            input_str (str): String containing the data
+        
+        Returns:
+            object: Matches with the found username
+        """
+        # Example regex pattern to find username
+        import re
         pattern = r'(?P<username>[a-zA-Z0-9_]+)'
         matches = re.search(pattern, input_str)
-        return matches.group('username')
+        return matches
+    
 
 df=pd.read_csv("data.csv")
 
@@ -39,5 +65,7 @@ df=pd.DataFrame({
     "token": list_of_tokens
 })
 
+
 class_init=ReportSubcomponent(data=df)
-print(class_init.find_username_email_using_regex(input_str=" ".join(df['username'])))
+class_init.find_username_token_using_regex(df, "token")
+class_init.find_username_email_using_regex(" ".join(df['username']))
